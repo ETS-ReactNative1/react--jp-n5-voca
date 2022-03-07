@@ -1,21 +1,69 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Route, Navigate, Routes, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
+import NavBar from './components/navBar';
+import Learn from './pages/learn';
+import Practice from './pages/practice';
+import NotFound from './pages/app/notFound';
 import './App.css';
+import About from './pages/app/about';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const { i18n } = useTranslation();
+  const { pathname } = useLocation();
+  const [selectedCharacter, setSelectedCharacter] = useState('ka');
+
+  // const setLanguage = (lang) => i18n.changeLanguage(lang);
+
+  const getLangCookie = () => Cookies.get('site-lang');
+
+  const changeLanguage = (e) => {
+    const lang = e.target.value;
+    Cookies.set('site-lang', lang);
+    // setLanguage(lang);
+  };
+
+  const handleCharacter = (e, value) => {
+    if (value !== null) setSelectedCharacter(value);
+    saveToLocalStorage('charType', value);
+  };
+
+  const saveToLocalStorage = (name, value) => localStorage.setItem(name, value);
+  const getFromLocalStorage = (name) => localStorage.getItem(name);
+
+  useEffect(() => {
+    // lang
+    // setLanguage(getLangCookie());
+
+    const currentCharType = getFromLocalStorage('charType');
+    if (currentCharType) setSelectedCharacter(currentCharType);
+  }, []);
+
+  return (
+    <>
+      <NavBar
+        langChange={changeLanguage}
+        currentLang={getLangCookie()}
+        selectedCharacter={selectedCharacter}
+        handleCharacter={handleCharacter}
+      />
+      <Routes>
+        <Route
+          path="/learn"
+          element={<Learn selectedCharacter={selectedCharacter} />}
+        />
+        <Route
+          path="/practice"
+          element={<Practice selectedCharacter={selectedCharacter} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="/" exact element={<Navigate to="/learn" />} />
+        <Route path="*" element={<Navigate to="/not-found" />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
