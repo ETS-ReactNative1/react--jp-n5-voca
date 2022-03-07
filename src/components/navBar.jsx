@@ -57,7 +57,7 @@ const NavBar = ({
 
           <div className="flex flex-col">
             <span className="whitespace-nowrap text-lg font-bold dark:text-white">
-              M0Ji
+              N5 Voca
             </span>
             <div className="md:-mr-20">
               <span className="text-sm text-gray-400">ー welcome</span>
@@ -99,34 +99,6 @@ const NavBar = ({
           }`}
           id="mobile-menu">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-            <li className="mb-2 md:mb-0 text-center">
-              <ToggleButtonGroup
-                value={selectedCharacter}
-                onChange={handleCharacter}
-                color="primary"
-                exclusive>
-                <ToggleButton
-                  value="ka"
-                  sx={{
-                    borderRadius: 5,
-                    paddingTop: 0.5,
-                    paddingBottom: 0.5,
-                    marginTop: 0.2,
-                  }}>
-                  ヵ
-                </ToggleButton>
-                <ToggleButton
-                  value="hi"
-                  sx={{
-                    borderRadius: 5,
-                    paddingTop: 0.5,
-                    paddingBottom: 0.5,
-                    marginTop: 0.2,
-                  }}>
-                  ひ
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </li>
             <li onClick={() => setMenuVisibility(false)}>
               <NavLink
                 to="/learn"
