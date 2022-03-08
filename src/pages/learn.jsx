@@ -18,6 +18,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CustomRadioButton from '../components/customRadioButton';
+import Favorite from '../components/favorite';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -33,13 +34,14 @@ const rows = [
 
 const Learn = () => {
   const [lesson, setLesson] = useState(1);
-  const [lessonFile, setLessonFile] = useState(0);
+  const [lessonFile, setLessonFile] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const handleLessonChange = (value) => {
     setLesson(value);
     setModalVisibility(false);
-    setLessonFile(require(`../data/_${value}.js`));
+    setLessonFile(require(`../data/_${value}.js`).data);
   };
 
   const handleModal = () =>
@@ -49,8 +51,35 @@ const Learn = () => {
 
   const handleSubmit = () => console.log('submitted');
 
+  const handleFavorite = (data) => {
+    const items = [...lessonFile];
+    const index = items.indexOf(data);
+    items[index] = { ...items[index] };
+    items[index].isFavorite = !lessonFile[index].isFavorite;
+    setLessonFile(items);
+    // if (data.isFavorite) {
+    //   setIsFavorite(isFavorite);
+    //   const d = data.id; // 1
+    //   const e = lesson + '_' + d; // 1_1 -> lesson 1 & no 1
+    //   const prevFavorites = getFromLocalStorage('favorites');
+    //   setFavorite([...prevFavorites, e]);
+    // } else {
+    //   console.log('dkkfjdf');
+    // }
+  };
+
+  const setFavorite = (data) => saveToLocalStorage('favorites', data);
+
+  const initializeFavorites = () => {
+    saveToLocalStorage('favorites', JSON.stringify([]));
+  };
+
+  const saveToLocalStorage = (name, value) => localStorage.setItem(name, value);
+  const getFromLocalStorage = (name) => localStorage.getItem(name);
+
   useEffect(() => {
-    setLessonFile(require(`../data/_1.js`));
+    if (!('favorites' in localStorage)) initializeFavorites();
+    setLessonFile(require(`../data/_1.js`).data);
   }, []);
 
   return (
@@ -67,42 +96,52 @@ const Learn = () => {
         </div>
 
         <TableContainer component={Paper} sx={{ mt: 3 }}>
-          <Table sx={{ minWidth: 150 }} aria-label="a dense table">
+          <Table sx={{ minWidth: 150 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
-                <TableCell>
+                <TableCell width="auto">
                   <Typography style={{ fontWeight: 600 }}>No.</Typography>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>
                     Vocabulary
                   </Typography>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>
                     Romaji / Kanji
                   </Typography>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>Meaning</Typography>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>Favorite</Typography>
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {lessonFile.data &&
-                lessonFile.data.map((data) => (
+              {lessonFile &&
+                lessonFile.map((data) => (
                   <TableRow
                     key={data.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                    <TableCell component="th" scope="row">
+                    <TableCell component="th" scope="row" className="w-5">
                       {data.id}
                     </TableCell>
-                    <TableCell align="right">{data.voca}</TableCell>
-                    <TableCell align="right">{data.romaji}</TableCell>
-                    <TableCell align="right">{data.meaning}</TableCell>
+                    <TableCell align="left" className="w-60">
+                      {data.voca}
+                    </TableCell>
+                    <TableCell align="left" className="w-60">
+                      {data.romaji}
+                    </TableCell>
+                    <TableCell align="left">{data.meaning}</TableCell>
+                    <TableCell>
+                      <Favorite
+                        checked={data.isFavorite}
+                        onClick={() => handleFavorite(data)}
+                      />
+                    </TableCell>
                   </TableRow>
                 ))}
             </TableBody>
