@@ -1,6 +1,6 @@
 .active {
   color: #ffffff;
-  background-color: #6875f5;
+  background-color: #34d399;
   display: block;
   padding: 0.5rem;
 }
@@ -16,7 +16,7 @@
 @media only screen and (max-width: 600px) {
   .active {
     color: #ffffff;
-    background-color: #6875f5;
+    background-color: #34d399;
     display: block;
   }
 }
