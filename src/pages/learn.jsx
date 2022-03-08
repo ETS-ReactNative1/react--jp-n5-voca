@@ -130,7 +130,7 @@ const Learn = () => {
         <div className="flex justify-between items-center mt-5">
           <button
             onClick={handleModal}
-            className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-green-600 shadow-md dark:hover:bg-green-700 dark:focus:ring-green-800"
+            className="text-white bg-purple-500 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-purple-600dark:hover:bg-purple-700 dark:focus:ring-purple-800"
             type="button">
             Select Lesson...
           </button>
