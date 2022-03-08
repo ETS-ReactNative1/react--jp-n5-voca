@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import {
   FormControl,
@@ -33,11 +33,13 @@ const rows = [
 
 const Learn = () => {
   const [lesson, setLesson] = useState(1);
+  const [lessonFile, setLessonFile] = useState(0);
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const handleLessonChange = (value) => {
     setLesson(value);
     setModalVisibility(false);
+    setLessonFile(require(`../data/_${value}.js`));
   };
 
   const handleModal = () =>
@@ -46,6 +48,10 @@ const Learn = () => {
   const handleModalClose = () => setModalVisibility(false);
 
   const handleSubmit = () => console.log('submitted');
+
+  useEffect(() => {
+    setLessonFile(require(`../data/_1.js`));
+  }, []);
 
   return (
     <Container>
@@ -86,19 +92,19 @@ const Learn = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
-                </TableRow>
-              ))}
+              {lessonFile.data &&
+                lessonFile.data.map((data) => (
+                  <TableRow
+                    key={data.id}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    <TableCell component="th" scope="row">
+                      {data.id}
+                    </TableCell>
+                    <TableCell align="right">{data.voca}</TableCell>
+                    <TableCell align="right">{data.romaji}</TableCell>
+                    <TableCell align="right">{data.meaning}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
@@ -132,9 +138,10 @@ const Learn = () => {
                   </h3>
                   <div className="flex justify-center flex-col">
                     <div className="relative w-full gap-2 text-center">
-                      <div class="grid grid-cols-5 gap-4">
+                      <div className="grid grid-cols-5 gap-4">
                         {_.range(1, 26).map((i) => (
                           <CustomRadioButton
+                            key={i}
                             value={i}
                             selected={lesson}
                             label={i}
