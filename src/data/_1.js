@@ -4,7 +4,6 @@ export const data = [
     voca: 'watashi 1',
     romaji: 'romaji',
     meaning: 'this is meaning',
-    isFavorite: true,
   },
   {
     id: 2,

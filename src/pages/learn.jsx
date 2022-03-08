@@ -34,15 +34,12 @@ const rows = [
 
 const Learn = () => {
   const [lesson, setLesson] = useState(1);
+  const [lastViewedLesson, setLastViewedLesson] = useState(1);
   const [lessonFile, setLessonFile] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoritesInSelectedLesson, setFavoritesInSelectedLesson] = useState(
+    []
+  );
   const [modalVisibility, setModalVisibility] = useState(false);
-
-  const handleLessonChange = (value) => {
-    setLesson(value);
-    setModalVisibility(false);
-    setLessonFile(require(`../data/_${value}.js`).data);
-  };
 
   const handleModal = () =>
     modalVisibility ? setModalVisibility(false) : setModalVisibility(true);
@@ -51,24 +48,52 @@ const Learn = () => {
 
   const handleSubmit = () => console.log('submitted');
 
+  const handleLessonChange = (value) => {
+    setLesson(value);
+    saveLastViewedLesson(value);
+    setLastViewedLesson(value);
+    setModalVisibility(false);
+    setLessonFile(require(`../data/_${value}.js`).data);
+
+    paintUiForPastFavorites(value);
+  };
+
+  const saveLastViewedLesson = (l) => saveToLocalStorage('lastViewedLesson', l);
+  const retrieveLastViewedLesson = () =>
+    getFromLocalStorage('lastViewedLesson');
+
+  const paintUiForPastFavorites = (currentLesson) => {
+    const prevFavorites = JSON.parse(getFromLocalStorage('favorites'));
+    const favoritesInLesson = prevFavorites.filter(
+      (f) => currentLesson == f.split('-')[1]
+    );
+    const a = favoritesInLesson.map((f) => parseInt(f.split('-')[0]));
+    setFavoritesInSelectedLesson(a);
+  };
+
   const handleFavorite = (data) => {
     const items = [...lessonFile];
     const index = items.indexOf(data);
     items[index] = { ...items[index] };
     items[index].isFavorite = !lessonFile[index].isFavorite;
     setLessonFile(items);
-    // if (data.isFavorite) {
-    //   setIsFavorite(isFavorite);
-    //   const d = data.id; // 1
-    //   const e = lesson + '_' + d; // 1_1 -> lesson 1 & no 1
-    //   const prevFavorites = getFromLocalStorage('favorites');
-    //   setFavorite([...prevFavorites, e]);
-    // } else {
-    //   console.log('dkkfjdf');
-    // }
+
+    let newVocaId = `${items[index].id}-${lesson}`;
+    const prevFavorites = JSON.parse(getFromLocalStorage('favorites'));
+    // prevFavorites ['1-1', '1-2'] ထဲမှာ '1-1' ပါ/မပါ စစ်. မပါဘူးဆို ထည့်.
+    if (!_.includes(prevFavorites, newVocaId))
+      setFavorite(JSON.stringify([...prevFavorites, newVocaId]));
+    else removeFavorite('favorites', newVocaId); // ပါတယ်ဆို ဖြုတ်.
+    paintUiForPastFavorites(lesson); // ui ကို update လုပ်
   };
 
   const setFavorite = (data) => saveToLocalStorage('favorites', data);
+
+  function removeFavorite(name, value) {
+    const f = JSON.parse(getFromLocalStorage(name));
+    const updatedFavorites = _.without(f, value);
+    setFavorite(JSON.stringify(updatedFavorites));
+  }
 
   const initializeFavorites = () => {
     saveToLocalStorage('favorites', JSON.stringify([]));
@@ -78,9 +103,26 @@ const Learn = () => {
   const getFromLocalStorage = (name) => localStorage.getItem(name);
 
   useEffect(() => {
+    // initialize favorites array for the first time user
     if (!('favorites' in localStorage)) initializeFavorites();
-    setLessonFile(require(`../data/_1.js`).data);
+
+    // get the user to the last viewed lesson
+    const _lastViewedLesson = retrieveLastViewedLesson();
+    if (_lastViewedLesson) {
+      setLesson(_lastViewedLesson);
+      setLessonFile(require(`../data/_${_lastViewedLesson}.js`).data);
+      paintUiForPastFavorites(_lastViewedLesson);
+    } else {
+      setLesson(1);
+      setLessonFile(require(`../data/_1.js`).data);
+      paintUiForPastFavorites(1);
+    }
   }, []);
+
+  useEffect(() => {
+    paintUiForPastFavorites(lesson);
+    setLastViewedLesson(lesson);
+  }, [lesson]);
 
   return (
     <Container>
@@ -96,7 +138,7 @@ const Learn = () => {
         </div>
 
         <TableContainer component={Paper} sx={{ mt: 3 }}>
-          <Table sx={{ minWidth: 150 }} size="small" aria-label="a dense table">
+          <Table sx={{ minWidth: 150 }} aria-label="a dense table">
             <TableHead>
               <TableRow>
                 <TableCell width="auto">
@@ -138,7 +180,7 @@ const Learn = () => {
                     <TableCell align="left">{data.meaning}</TableCell>
                     <TableCell>
                       <Favorite
-                        checked={data.isFavorite}
+                        checked={_.includes(favoritesInSelectedLesson, data.id)}
                         onClick={() => handleFavorite(data)}
                       />
                     </TableCell>
@@ -182,7 +224,7 @@ const Learn = () => {
                           <CustomRadioButton
                             key={i}
                             value={i}
-                            selected={lesson}
+                            selected={lastViewedLesson}
                             label={i}
                             onClick={handleLessonChange}
                           />

@@ -7,7 +7,7 @@ const CustomRadioButton = ({
   description,
   onClick,
 }) => {
-  const isSelected = value === selected;
+  const isSelected = value == selected;
 
   return (
     <div
