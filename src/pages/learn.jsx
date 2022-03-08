@@ -134,7 +134,13 @@ const Learn = () => {
             type="button">
             Select Lesson...
           </button>
-          <span className="ml-3">Selected Lesson: {lesson}</span>
+
+          <div className="text-right">
+            <span className="ml-3 block">Selected Lesson: {lesson}</span>
+            <span className="text-sm text-purple-700">
+              {favoritesInSelectedLesson.length} favorites in this lesson
+            </span>
+          </div>
         </div>
 
         <TableContainer component={Paper} sx={{ mt: 3 }}>
