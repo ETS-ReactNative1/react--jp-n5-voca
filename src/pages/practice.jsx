@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import CustomRadioButton from '../components/customRadioButton';
 
@@ -11,7 +11,7 @@ const Practice = () => {
   const [to, setTo] = useState(6);
   const [isFromSelected, setIsFromSelected] = useState(true);
   const [isToSelected, setIsToSelected] = useState(true);
-  const [range, setRange] = useState([]);
+  const [lessonRange, setLessonRange] = useState([]);
 
   const handleModal = () =>
     modalVisibility ? setModalVisibility(false) : setModalVisibility(true);
@@ -24,24 +24,28 @@ const Practice = () => {
     if (!isFromSelected) {
       setFrom(lesson);
       setIsFromSelected(true);
-      setRange([lesson]);
+      setLessonRange([lesson]);
     } else if (isFromSelected) {
       setTo(lesson);
       setIsToSelected(true);
-      setRange(_.range(from, lesson + 1));
-      if (from > lesson) setRange(_.range(lesson, from + 1));
+      setLessonRange(_.range(from, lesson + 1));
+      if (from > lesson) setLessonRange(_.range(lesson, from + 1));
     }
     if (isFromSelected && isToSelected) {
       setTo(0);
       setFrom(lesson);
       setIsFromSelected(true);
       setIsToSelected(false);
-      setRange([lesson]);
+      setLessonRange([lesson]);
     }
   };
 
   const handleVisiblePracticeDataChange = (value) =>
     setVisiblePracticeData(value);
+
+  useEffect(() => {
+    setLessonRange(_.range(from, to + 1));
+  }, []);
 
   return (
     <Container>
@@ -126,7 +130,7 @@ const Practice = () => {
                             <CustomRadioButton
                               key={i}
                               value={i}
-                              range={range}
+                              range={lessonRange}
                               label={i}
                               onClick={() => handleLessonSelect(i)}
                             />
