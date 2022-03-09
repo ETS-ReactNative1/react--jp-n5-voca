@@ -36,3 +36,92 @@
 body {
   font-family: 'Inter';
 }
+
+/* flash card styles */
+/* .card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #ffffff;
+  transform-style: preserve-3d;
+  transition: 150ms;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+}
+
+.card:hover {
+  --translate-y: -4px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front {
+  background-color: #fff;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+  background-color: #faf5ff;
+} */
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+  transform-style: preserve-3d;
+  transition: 150ms;
+  cursor: pointer;
+  word-break: break-all;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+}
+
+.card:hover {
+  /* --translate-y: -2px; */
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front {
+  /* left: 0; */
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}

@@ -1,6 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import CustomRadioButton from '../components/customRadioButton';
+import FlashCardList from '../components/flashCardList';
+
+const flashCardData = [
+  { id: 1, front: 'a', back: 'b' },
+  { id: 2, front: 'a', back: 'b' },
+  {
+    id: 3,
+    front: 'a',
+    back: 'bdjfkjslfjlsjdflsdjfjksdjdkjfkksjfkjsdklfjklsjdfl',
+  },
+  { id: 4, front: 'a', back: 'b' },
+  { id: 5, front: 'a', back: 'b' },
+  {
+    id: 6,
+    front: 'ajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdfl',
+    back: 'bajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdfl',
+  },
+  { id: 7, front: 'a', back: 'b' },
+  { id: 8, front: 'a', back: 'b' },
+  { id: 9, front: 'a', back: 'b' },
+  { id: 10, front: 'a', back: 'b' },
+  { id: 11, front: 'a', back: 'b' },
+  { id: 12, front: 'a', back: 'b' },
+  { id: 13, front: 'a', back: 'b' },
+  { id: 14, front: 'a', back: 'b' },
+  { id: 15, front: 'a', back: 'b' },
+  { id: 16, front: 'a', back: 'b' },
+  { id: 17, front: 'a', back: 'b' },
+  { id: 18, front: 'a', back: 'b' },
+  { id: 19, front: 'a', back: 'b' },
+];
 
 const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -49,9 +80,9 @@ const Practice = () => {
 
   return (
     <Container>
-      <div className="container mx-auto mt-10">
+      <div className="container mx-auto mt-5">
         <div className="flex flex-col justify-center">
-          <div className="block mt-3 text-center ">
+          <div className="block text-center ">
             {/* modal open button */}
             <button
               onClick={handleModal}
@@ -71,6 +102,12 @@ const Practice = () => {
               Define Practice Settings
             </button>
           </div>
+
+          {/* flash card list component */}
+          <div className="mt-5">
+            <FlashCardList data={flashCardData} />
+          </div>
+          {/* end flash card list component */}
 
           {/* modal start */}
           <div className={`${modalVisibility ? '' : 'hidden'}`}>
@@ -225,6 +262,7 @@ const Practice = () => {
               </div>
             </div>
           </div>
+          {/* modal end */}
         </div>
       </div>
     </Container>
