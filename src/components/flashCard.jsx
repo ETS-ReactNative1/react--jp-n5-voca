@@ -21,7 +21,7 @@ const FlashCard = ({ flashcard }) => {
 
   return (
     <div
-      className={`card bg-white rounded-lg shadow-lg hover:shadow-none w-full ${
+      className={`card bg-white rounded-lg shadow-md hover:shadow-none w-full ${
         flip ? 'flip' : ''
       }`}
       style={{ height: height }}

@@ -168,6 +168,7 @@ const Practice = () => {
                               key={i}
                               value={i}
                               range={lessonRange}
+                              styles="py-1"
                               label={i}
                               onClick={() => handleLessonSelect(i)}
                             />
@@ -190,6 +191,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="All"
                             description=""
+                            styles="py-1"
                             onClick={handlePracticeTypeChange}
                           />
                           <CustomRadioButton
@@ -197,6 +199,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="+Favorites"
                             description=""
+                            styles="py-1"
                             onClick={handlePracticeTypeChange}
                           />
                           <CustomRadioButton
@@ -204,6 +207,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="-Favorites"
                             description=""
+                            styles="py-1"
                             onClick={handlePracticeTypeChange}
                           />
                         </div>
@@ -223,12 +227,14 @@ const Practice = () => {
                             value="vocabulary"
                             selected={visiblePracticeData}
                             label="Vocabulary"
+                            styles="py-1"
                             onClick={handleVisiblePracticeDataChange}
                           />
                           <CustomRadioButton
                             value="meaning"
                             selected={visiblePracticeData}
                             label="Meaning"
+                            styles="py-1"
                             onClick={handleVisiblePracticeDataChange}
                           />
                         </div>
