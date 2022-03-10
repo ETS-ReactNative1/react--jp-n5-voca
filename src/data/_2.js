@@ -1,74 +1,319 @@
 export const data = [
   {
     id: 1,
-    voca: 'anata 1',
-    romaji: 'romaji',
-    meaning: 'anata 1 ---',
+    voca: 'これ',
+    romaji: 'kore',
+    meaning: 'ဒီဟာ. (မိမိရဲ့ အနီးမှာရှိသောအရာ)',
     lesson: 2,
   },
   {
     id: 2,
-    voca: 'anata 2',
-    romaji: 'romaji',
-    meaning: 'anata 2 --- ',
+    voca: 'それ',
+    romaji: 'sore',
+    meaning: 'ဟိုဟာ. အဲ့ဒီဟာ (တခြားသူရဲ့ အနီးမှာရှိသောအရာ)',
     lesson: 2,
   },
   {
     id: 3,
-    voca: 'anata 3',
-    romaji: 'romaji',
-    meaning: 'anata 3 --- ',
+    voca: 'あれ',
+    romaji: 'are',
+    meaning: 'ဟိုးကဟာ. ဟိုးဟာ (အဝေးမှာရှိသောအရာ)',
+    lesson: 2,
+  },
+  {
+    id: 4,
+    voca: 'この～',
+    romaji: 'kono〜',
+    meaning: 'ဒီ〜 (ဒီစာအုပ်)',
+    lesson: 2,
+  },
+  {
+    id: 5,
+    voca: 'その～',
+    romaji: 'sono〜',
+    meaning: 'ဟို〜 (ဟိုစာအုပ်)',
+    lesson: 2,
+  },
+  {
+    id: 6,
+    voca: 'あの～',
+    romaji: 'ano〜',
+    meaning: 'ဟိုး〜 (ဟိုးက ဆိုင်)',
+    lesson: 2,
+  },
+  {
+    id: 7,
+    voca: 'ほん',
+    romaji: 'hon',
+    meaning: 'စာအုပ်',
+    lesson: 2,
+  },
+  {
+    id: 8,
+    voca: 'じしょ',
+    romaji: 'jisho',
+    meaning: 'အဘိဓာန်',
+    lesson: 2,
+  },
+  {
+    id: 9,
+    voca: 'ざっし',
+    romaji: 'zasshi',
+    meaning: 'မဂ္ဂဇင်း',
+    lesson: 2,
+  },
+  {
+    id: 10,
+    voca: 'しんぶん',
+    romaji: 'shinbun',
+    meaning: 'သတင်းစာ',
+    lesson: 2,
+  },
+  {
+    id: 11,
+    voca: 'ノート',
+    romaji: 'noーto',
+    meaning: 'မှတ်စုစာအုပ်',
+    lesson: 2,
+  },
+  {
+    id: 12,
+    voca: 'てちょう',
+    romaji: 'techoー',
+    meaning: 'အိတ်ဆောင်မှတ်စုစာအုပ်',
+    lesson: 2,
+  },
+  {
+    id: 13,
+    voca: 'めいし',
+    romaji: 'meishi',
+    meaning: 'လိပ်စာကဒ်ပြား',
+    lesson: 2,
+  },
+  {
+    id: 14,
+    voca: 'カード',
+    romaji: 'kaーdo',
+    meaning: 'ကဒ်ပြား',
+    lesson: 2,
+  },
+  {
+    id: 15,
+    voca: 'テレホンカード',
+    romaji: 'tereonkaーdo',
+    meaning: 'တယ်လီဖုန်းကဒ်',
+    lesson: 2,
+  },
+  {
+    id: 16,
+    voca: 'えんぴつ',
+    romaji: 'enpitsu',
+    meaning: 'ခဲတံ',
+    lesson: 2,
+  },
+  {
+    id: 17,
+    voca: 'ボールペン',
+    romaji: 'boーrupen',
+    meaning: 'ဘောပင်',
+    lesson: 2,
+  },
+  {
+    id: 18,
+    voca: 'シャープペンシル',
+    romaji: 'shaーpu penshiru',
+    meaning: 'ခဲသားဘောပင်',
+    lesson: 2,
+  },
+  {
+    id: 19,
+    voca: 'かぎ',
+    romaji: 'kagi',
+    meaning: 'သော့',
+    lesson: 2,
+  },
+  {
+    id: 20,
+    voca: 'とけい',
+    romaji: 'tokeー',
+    meaning: 'နာရီ',
+    lesson: 2,
+  },
+  {
+    id: 21,
+    voca: 'かさ',
+    romaji: 'kasa',
+    meaning: 'ထီး',
+    lesson: 2,
+  },
+  {
+    id: 22,
+    voca: 'かばん',
+    romaji: 'kaban',
+    meaning: 'အိတ်',
+    lesson: 2,
+  },
+  {
+    id: 23,
+    voca: 'テレビ',
+    romaji: 'terebi',
+    meaning: 'တီဗွီ',
+    lesson: 2,
+  },
+  {
+    id: 24,
+    voca: 'ラジオ',
+    romaji: 'rajio',
+    meaning: 'ရေဒီယို',
+    lesson: 2,
+  },
+  {
+    id: 25,
+    voca: 'カメラ',
+    romaji: 'kamera',
+    meaning: 'ကင်မရာ',
+    lesson: 2,
+  },
+  {
+    id: 26,
+    voca: 'コンピューター',
+    romaji: 'konphuーtaー',
+    meaning: 'ကွန်ပြူတာ',
+    lesson: 2,
+  },
+  {
+    id: 27,
+    voca: 'じどうしゃ',
+    romaji: 'jidousha',
+    meaning: 'ယာဉ်',
+    lesson: 2,
+  },
+  {
+    id: 28,
+    voca: 'くるま',
+    romaji: 'kuruma',
+    meaning: 'ကား',
+    lesson: 2,
+  },
+  {
+    id: 29,
+    voca: 'つくえ',
+    romaji: 'tsukue',
+    meaning: 'စာရေးစားပွဲ',
+    lesson: 2,
+  },
+  {
+    id: 30,
+    voca: 'いす',
+    romaji: 'isu',
+    meaning: 'ထိုင်ခုံ',
+    lesson: 2,
+  },
+  {
+    id: 31,
+    voca: 'チョコレート',
+    romaji: 'chokoreーto',
+    meaning: 'ချောကလက်',
+    lesson: 2,
+  },
+  {
+    id: 32,
+    voca: 'コーヒー',
+    romaji: 'koーhiー',
+    meaning: 'ကော်ဖီ',
+    lesson: 2,
+  },
+  {
+    id: 33,
+    voca: '（お）みやげ',
+    romaji: '(o) miyage',
+    meaning: 'အပြန်လက်ဆောင်',
+    lesson: 2,
+  },
+  {
+    id: 34,
+    voca: '～ご',
+    romaji: '〜go',
+    meaning: '〜စာ',
+    lesson: 2,
+  },
+  {
+    id: 35,
+    voca: 'えいご',
+    romaji: 'eigo',
+    meaning: 'English စာ',
+    lesson: 2,
+  },
+  {
+    id: 36,
+    voca: 'にほんご',
+    romaji: 'nihongo',
+    meaning: 'ဂျပန်စာ',
+    lesson: 2,
+  },
+  {
+    id: 37,
+    voca: 'なん',
+    romaji: 'nan',
+    meaning: 'ဘာ',
+    lesson: 2,
+  },
+  {
+    id: 38,
+    voca: 'そう',
+    romaji: 'sou',
+    meaning: 'အဲ့တိုင်း',
+    lesson: 2,
+  },
+  {
+    id: 39,
+    voca: 'えっ',
+    romaji: 'e',
+    meaning: 'အာမေဓိတ်သံ (အံအားသင့်)',
+    lesson: 2,
+  },
+  {
+    id: 40,
+    voca: 'どうーぞ。',
+    romaji: 'doーzo',
+    meaning:
+      'ကျေးဇူးပြုပြီး. (ထိုင်ပါ. သွားပါ. လာပါ. \nအသုံးပြုပါ စသည်တို့တွင် ခွင့်ပြုခြင်းကို ဖော်ပြသည်)',
+    lesson: 2,
+  },
+  {
+    id: 41,
+    voca: '「どうも」ありがとう\nございます',
+    romaji: '(doーmo) arigatoー\ngozaimasu',
+    meaning: 'ကျေးဇူးအများကြီး တင်ပါတယ်',
+    lesson: 2,
+  },
+  {
+    id: 42,
+    voca: 'そうですか。',
+    romaji: 'soーdesuka',
+    meaning: 'ဟုတ်လား',
+    lesson: 2,
+  },
+  {
+    id: 43,
+    voca: 'ちがいます。',
+    romaji: 'chigaimasu',
+    meaning: 'မဟုတ်ပါဘူး. မှားပါတယ်. လွဲနေတယ်',
+    lesson: 2,
+  },
+  {
+    id: 44,
+    voca: 'これからおせわになります',
+    romaji: 'korekara osewani \nnarimasu',
+    meaning: 'အခုကစပြီး ကူညီစောင့်ရှောက်ပေးပါခင်ဗျာ',
+    lesson: 2,
+  },
+  {
+    id: 45,
+    voca: 'こちらこそ「どうぞ」\nよろしく「おねがいします」',
+    romaji: 'kochirakoso (doーzo) \nyoroshiku (onegaishimasu)',
+    meaning:
+      'ကျွန်တော်ကလည်း တွေ့ရတာဝမ်းသာပါတယ်. \n(dozo yoroshiku လို့ပြောလာလျှင် ပြန်ပြောရမယ့် စကား)',
     lesson: 2,
   },
 ];
-
-/*
-[
-    {
-    id: 1,
-    voca: 'watashi 1',
-    lesson: 1,
-  },
-  {
-    id: 2,
-    voca: 'watashi 2',
-    lesson: 1,
-  },
-  {
-    id: 1,
-    voca: 'anata 1',
-    lesson: 2,
-  },
-  {
-    id: 2,
-    voca: 'anata 2',
-    lesson: 2,
-  },
-  {
-    id: 3,
-    voca: 'anata 3',
-    lesson: 2,
-  },
-]
-
-
-*/
-
-/*
-[
-  {
-    id: 1,
-    lesson: 1
-  }, 
-  {
-    id: 2,
-    lesson: 1
-  }, 
-  {
-    id: 1,
-    lesson: 2
-  }
-]
-
-
-*/
