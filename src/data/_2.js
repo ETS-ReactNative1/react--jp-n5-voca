@@ -1,20 +1,20 @@
 export const data = [
   {
     id: 1,
-    voca: 'dfffffffffffffffffffffff',
+    voca: 'anata 1',
     romaji: 'romaji',
-    meaning: 'this is meaning',
+    meaning: 'anata 1 ---',
   },
   {
     id: 2,
-    voca: 'dfffffffffffffffffff',
+    voca: 'anata 2',
     romaji: 'romaji',
-    meaning: 'this is meaning',
+    meaning: 'anata 2 --- ',
   },
   {
     id: 3,
-    voca: 'dffffffffffffffff',
+    voca: 'anata 3',
     romaji: 'romaji',
-    meaning: 'this is meaning',
+    meaning: 'anata 3 --- ',
   },
 ];

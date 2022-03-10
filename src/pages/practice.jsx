@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import _ from 'lodash';
 import { Container } from '@mui/material';
 import CustomRadioButton from '../components/customRadioButton';
 import FlashCardList from '../components/flashCardList';
+import {
+  transformFrontAndBack,
+  transformUniqueId,
+} from '../utils/mutateObjKeys';
 
 const flashCardData = [
   { id: 1, front: 'a', back: 'b' },
@@ -35,14 +40,15 @@ const flashCardData = [
 
 const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [practiceType, setPracticeType] = useState('all');
-  const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary');
+  const [practiceType, setPracticeType] = useState('all'); // all, favorites, nonfavorites
+  const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary'); // vocabulary, meaning
 
   const [from, setFrom] = useState(1);
-  const [to, setTo] = useState(6);
+  const [to, setTo] = useState(2);
   const [isFromSelected, setIsFromSelected] = useState(true);
   const [isToSelected, setIsToSelected] = useState(true);
   const [lessonRange, setLessonRange] = useState([]);
+  const [practiceData, setPracticeData] = useState([]);
 
   const handleModal = () =>
     modalVisibility ? setModalVisibility(false) : setModalVisibility(true);
@@ -68,6 +74,49 @@ const Practice = () => {
       setIsFromSelected(true);
       setIsToSelected(false);
       setLessonRange([lesson]);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    // console.log(lessonRange, practiceType, visiblePracticeData);
+    e.preventDefault();
+    handleModalClose();
+
+    // clear previous previous data
+    setPracticeData([]);
+
+    // call all data : [lesson range]
+    let data = [];
+    lessonRange.map((lesson) => {
+      data.push(require(`../data/_${lesson}.js`).data);
+    });
+    const flattenData = _.flattenDeep(data);
+
+    // extract data according to [practice type]
+    let allData = [];
+    if (practiceType === 'all') {
+      allData = _.shuffle(flattenData);
+    } else if (practiceType === 'favorites') {
+      // get favorites array from local storage : ['1_1', '1_2', '1_2']
+    }
+
+    // want to see what kind of data: voca or meaning ?
+    if (visiblePracticeData === 'vocabulary') {
+      // transform keys : transform keys voca and meaning to front and back
+      let transformedData = transformFrontAndBack(allData, ['front', 'back']);
+
+      // transform value : make id unique
+      let transformedData2 = transformUniqueId(transformedData);
+
+      setPracticeData(transformedData2);
+    } else if (visiblePracticeData === 'meaning') {
+      // transform keys : transform keys voca and meaning to back and front
+      let transformedData = transformFrontAndBack(allData, ['back', 'front']);
+
+      // transform value : make id unique
+      let transformedData2 = transformUniqueId(transformedData);
+
+      setPracticeData(transformedData2);
     }
   };
 
@@ -105,7 +154,7 @@ const Practice = () => {
 
           {/* flash card list component */}
           <div className="mt-5">
-            <FlashCardList data={flashCardData} />
+            <FlashCardList data={practiceData} />
           </div>
           {/* end flash card list component */}
 
@@ -134,7 +183,7 @@ const Practice = () => {
                   </div>
                   {/* form start */}
                   <form
-                    // onSubmit={handleSubmit}
+                    onSubmit={handleSubmit}
                     className="px-6 pb-4 space-y-4 lg:px-8 sm:pb-6 xl:pb-8">
                     <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                       Setup Practice Settings{' '}
