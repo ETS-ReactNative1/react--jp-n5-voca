@@ -105,7 +105,7 @@ const Learn = () => {
 
   return (
     <Container>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center mb-20">
         <div className="flex justify-between items-center mt-5">
           <button
             onClick={handleModal}
@@ -115,9 +115,10 @@ const Learn = () => {
           </button>
 
           <div className="text-right">
-            <span className="ml-3 block">Selected Lesson: {lesson}</span>
+            <span className="ml-3 font-bold block">Lesson: {lesson}</span>
             <span className="text-sm text-purple-700">
-              {favoritesInSelectedLesson.length} favorites in this lesson
+              {favoritesInSelectedLesson.length} favorites / {lessonFile.length}{' '}
+              total
             </span>
           </div>
         </div>
@@ -211,6 +212,7 @@ const Learn = () => {
                             value={i}
                             selected={lastViewedLesson}
                             label={i}
+                            styles="py-2"
                             onClick={handleLessonChange}
                           />
                         ))}
@@ -222,6 +224,7 @@ const Learn = () => {
             </div>
           </div>
         </div>
+        <span className="text-center mt-5 text-gray-400">ー finish ー</span>
       </div>
     </Container>
   );

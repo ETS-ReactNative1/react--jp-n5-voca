@@ -286,7 +286,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="All"
                             description=""
-                            styles="py-1"
+                            styles="py-2"
                             onClick={handlePracticeTypeChange}
                           />
                           <CustomRadioButton
@@ -294,7 +294,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="+Favorites"
                             description=""
-                            styles="py-1"
+                            styles="py-2"
                             onClick={handlePracticeTypeChange}
                           />
                           <CustomRadioButton
@@ -302,7 +302,7 @@ const Practice = () => {
                             selected={practiceType}
                             label="-Favorites"
                             description=""
-                            styles="py-1"
+                            styles="py-2"
                             onClick={handlePracticeTypeChange}
                           />
                         </div>
@@ -322,14 +322,14 @@ const Practice = () => {
                             value="vocabulary"
                             selected={visiblePracticeData}
                             label="Vocabulary"
-                            styles="py-1"
+                            styles="py-2"
                             onClick={handleVisiblePracticeDataChange}
                           />
                           <CustomRadioButton
                             value="meaning"
                             selected={visiblePracticeData}
                             label="Meaning"
-                            styles="py-1"
+                            styles="py-2"
                             onClick={handleVisiblePracticeDataChange}
                           />
                         </div>
