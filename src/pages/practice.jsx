@@ -169,9 +169,50 @@ const Practice = () => {
           </div>
 
           {/* flash card list component */}
-          <div className="container mx-auto mt-5">
-            <FlashCardList data={practiceData} />
+          <div className="flex flex-col justify-center mx-auto mt-5">
+            <div>
+              Practice Type:{' '}
+              <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+                {practiceType}
+              </span>
+            </div>
+            <div>
+              Lesson Range:{' '}
+              <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+                {lessonRange.join(', ')}
+              </span>
+            </div>
+            <div>
+              Total:{' '}
+              <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+                {practiceData.length}
+              </span>
+            </div>
           </div>
+          {practiceData.length > 0 ? (
+            <div className="container mx-auto mt-4">
+              <FlashCardList data={practiceData} />
+            </div>
+          ) : (
+            <div className="flex flex-col justify-center mx-auto mt-10">
+              <span className="items-center justify-center text-red-600 bg-red-100 px-2 py-1 rounded-full">
+                Currently no data to practice{' '}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 inline"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                  />
+                </svg>
+              </span>
+            </div>
+          )}
           {/* end flash card list component */}
 
           {/* modal start */}
