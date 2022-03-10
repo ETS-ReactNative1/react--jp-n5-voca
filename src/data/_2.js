@@ -21,3 +21,54 @@ export const data = [
     lesson: 2,
   },
 ];
+
+/*
+[
+    {
+    id: 1,
+    voca: 'watashi 1',
+    lesson: 1,
+  },
+  {
+    id: 2,
+    voca: 'watashi 2',
+    lesson: 1,
+  },
+  {
+    id: 1,
+    voca: 'anata 1',
+    lesson: 2,
+  },
+  {
+    id: 2,
+    voca: 'anata 2',
+    lesson: 2,
+  },
+  {
+    id: 3,
+    voca: 'anata 3',
+    lesson: 2,
+  },
+]
+
+
+*/
+
+/*
+[
+  {
+    id: 1,
+    lesson: 1
+  }, 
+  {
+    id: 2,
+    lesson: 1
+  }, 
+  {
+    id: 1,
+    lesson: 2
+  }
+]
+
+
+*/

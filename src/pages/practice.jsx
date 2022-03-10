@@ -40,7 +40,7 @@ const flashCardData = [
 
 const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [practiceType, setPracticeType] = useState('favorites'); // all, favorites, nonfavorites
+  const [practiceType, setPracticeType] = useState('nonfavorites'); // all, favorites, nonfavorites
   const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary'); // vocabulary, meaning
 
   const [from, setFrom] = useState(1);
@@ -114,10 +114,34 @@ const Practice = () => {
         return { id, lesson };
       });
 
-      // const a = _.intersection(flattenData, favoritesArray);
+      // favorites ဟုတ်တာကို ယူ
       allData = flattenData.filter((fa) => {
         return favoritesArray.find(
           (fd) => fd.id === fa.id && fd.lesson === fa.lesson
+        );
+      });
+    } else if (practiceType === 'nonfavorites') {
+      // get favorites array from local storage : ["1-1","2-1","1-2", "1-3"]
+      let favoritesFromStorage = JSON.parse(localStorage.getItem('favorites'));
+
+      // favorites according to selected lesson range
+      let favoritesAccordingToLessonRange = favoritesFromStorage.filter((f) => {
+        let lesson = parseInt(f.split('-')[1]); // 1, 1, 2
+        return _.includes(lessonRange, lesson);
+      }); // ['1-1', '2-1', '1-2']
+
+      // flattenData ထဲက favoritesAccordingToLessonRange နဲ့ကိုက်တာကို ခွဲထုတ်
+      let favoritesArray = favoritesAccordingToLessonRange.map((f) => {
+        let a = f.split('-');
+        let id = parseInt(a[0]);
+        let lesson = parseInt(a[1]);
+        return { id, lesson };
+      });
+
+      // favorites မဟုတ်တာကို ယူ
+      allData = flattenData.filter((a) => {
+        return !favoritesArray.some(
+          (b) => a.id === b.id && a.lesson === b.lesson
         );
       });
     }
