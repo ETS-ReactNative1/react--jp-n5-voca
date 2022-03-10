@@ -8,36 +8,6 @@ import {
   transformUniqueId,
 } from '../utils/mutateObjKeys';
 
-const flashCardData = [
-  { id: 1, front: 'a', back: 'b' },
-  { id: 2, front: 'a', back: 'b' },
-  {
-    id: 3,
-    front: 'a',
-    back: 'bdjfkjslfjlsjdflsdjfjksdjdkjfkksjfkjsdklfjklsjdfl',
-  },
-  { id: 4, front: 'a', back: 'b' },
-  { id: 5, front: 'a', back: 'b' },
-  {
-    id: 6,
-    front: 'ajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdfl',
-    back: 'bajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdflbajdfsjdfljsklfjsjdfljksdjdkjfkksjfkjsdklfjklsjdfl',
-  },
-  { id: 7, front: 'a', back: 'b' },
-  { id: 8, front: 'a', back: 'b' },
-  { id: 9, front: 'a', back: 'b' },
-  { id: 10, front: 'a', back: 'b' },
-  { id: 11, front: 'a', back: 'b' },
-  { id: 12, front: 'a', back: 'b' },
-  { id: 13, front: 'a', back: 'b' },
-  { id: 14, front: 'a', back: 'b' },
-  { id: 15, front: 'a', back: 'b' },
-  { id: 16, front: 'a', back: 'b' },
-  { id: 17, front: 'a', back: 'b' },
-  { id: 18, front: 'a', back: 'b' },
-  { id: 19, front: 'a', back: 'b' },
-];
-
 const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [practiceType, setPracticeType] = useState('nonfavorites'); // all, favorites, nonfavorites
@@ -176,12 +146,12 @@ const Practice = () => {
   return (
     <Container>
       <div className="container mx-auto mt-5">
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center mb-20">
           <div className="block text-center ">
             {/* modal open button */}
             <button
               onClick={handleModal}
-              className="text-white bg-purple-500 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+              className="text-white bg-amber-500 shadow-md hover:bg-amber-700 focus:ring-4 focus:ring-amber-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
               type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -339,7 +309,7 @@ const Practice = () => {
                     {/* submit button */}
                     <button
                       type="submit"
-                      className="w-full font-bold text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
+                      className="w-full font-bold text-white bg-amber-500 hover:bg-amber-800 focus:ring-4 focus:ring-amber-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
                       Let's start{' '}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -364,6 +334,7 @@ const Practice = () => {
             </div>
           </div>
           {/* modal end */}
+          <span className="text-center mt-5 text-gray-400">ー finish ー</span>
         </div>
       </div>
     </Container>

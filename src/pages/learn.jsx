@@ -109,14 +109,32 @@ const Learn = () => {
         <div className="flex justify-between items-center mt-5">
           <button
             onClick={handleModal}
-            className="text-white bg-purple-500 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-purple-600dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+            className="text-white bg-amber-500 shadow-md hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-amber-600dark:hover:bg-amber-700 dark:focus:ring-amber-800"
             type="button">
-            Select Lesson...
+            Select Lesson{' '}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+              />
+            </svg>
           </button>
 
           <div className="text-right">
-            <span className="ml-3 font-bold block">Lesson: {lesson}</span>
-            <span className="text-sm text-purple-700">
+            <span className="ml-3 font-bold block">
+              Lesson:{' '}
+              <span className="bg-amber-300 text-amber-800 px-3 py-2 rounded-full">
+                {lesson}
+              </span>
+            </span>
+            <span className="text-sm text-amber-700">
               {favoritesInSelectedLesson.length} favorites / {lessonFile.length}{' '}
               total
             </span>
