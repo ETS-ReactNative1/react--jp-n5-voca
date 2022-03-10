@@ -40,7 +40,7 @@ const flashCardData = [
 
 const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [practiceType, setPracticeType] = useState('all'); // all, favorites, nonfavorites
+  const [practiceType, setPracticeType] = useState('favorites'); // all, favorites, nonfavorites
   const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary'); // vocabulary, meaning
 
   const [from, setFrom] = useState(1);
@@ -90,14 +90,36 @@ const Practice = () => {
     lessonRange.map((lesson) => {
       data.push(require(`../data/_${lesson}.js`).data);
     });
-    const flattenData = _.flattenDeep(data);
+    const flattenData = _.flattenDeep(data); // [ {id...}, {id...}, {id...}]
 
     // extract data according to [practice type]
     let allData = [];
     if (practiceType === 'all') {
       allData = _.shuffle(flattenData);
     } else if (practiceType === 'favorites') {
-      // get favorites array from local storage : ['1_1', '1_2', '1_2']
+      // get favorites array from local storage : ["1-1","2-1","1-2", "1-3"]
+      let favoritesFromStorage = JSON.parse(localStorage.getItem('favorites'));
+
+      // favorites according to selected lesson range
+      let favoritesAccordingToLessonRange = favoritesFromStorage.filter((f) => {
+        let lesson = parseInt(f.split('-')[1]); // 1, 1, 2
+        return _.includes(lessonRange, lesson);
+      }); // ['1-1', '2-1', '1-2']
+
+      // flattenData ထဲက favoritesAccordingToLessonRange နဲ့ကိုက်တာကို ခွဲထုတ်
+      let favoritesArray = favoritesAccordingToLessonRange.map((f) => {
+        let a = f.split('-');
+        let id = parseInt(a[0]);
+        let lesson = parseInt(a[1]);
+        return { id, lesson };
+      });
+
+      // const a = _.intersection(flattenData, favoritesArray);
+      allData = flattenData.filter((fa) => {
+        return favoritesArray.find(
+          (fd) => fd.id === fa.id && fd.lesson === fa.lesson
+        );
+      });
     }
 
     // want to see what kind of data: voca or meaning ?
@@ -153,7 +175,7 @@ const Practice = () => {
           </div>
 
           {/* flash card list component */}
-          <div className="mt-5">
+          <div className="container mx-auto mt-5">
             <FlashCardList data={practiceData} />
           </div>
           {/* end flash card list component */}
