@@ -127,7 +127,7 @@ const Learn = () => {
         <div className="flex justify-between items-center mt-5">
           <button
             onClick={handleModal}
-            className="text-white bg-amber-500 shadow-md hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-amber-600dark:hover:bg-amber-700 dark:focus:ring-amber-800"
+            className="text-white bg-red-500 shadow-md hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-red-600dark:hover:bg-red-700 dark:focus:ring-red-800"
             type="button">
             Select Lesson{' '}
             <svg
@@ -148,11 +148,11 @@ const Learn = () => {
           <div className="text-right">
             <span className="ml-3 font-bold block">
               Lesson:{' '}
-              <span className="bg-amber-300 text-amber-800 px-3 py-2 rounded-full">
+              <span className="bg-red-300 text-red-800 px-3 py-2 rounded-full">
                 {lesson}
               </span>
             </span>
-            <span className="text-sm text-amber-700">
+            <span className="text-sm text-red-700">
               {favoritesInSelectedLesson.length} favorites / {lessonFile.length}{' '}
               total
             </span>
@@ -237,9 +237,22 @@ const Learn = () => {
                 </div>
                 <form
                   onSubmit={handleSubmit}
-                  className="px-6 pb-4 space-y-4 lg:px-8 sm:pb-6 xl:pb-8">
-                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                    Select a lesson
+                  className="px-6 pb-8 space-y-4 lg:px-8">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                    Select a lesson{' '}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 inline"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      />
+                    </svg>
                   </h3>
                   <div className="flex justify-center flex-col">
                     <div className="relative w-full gap-2 text-center">

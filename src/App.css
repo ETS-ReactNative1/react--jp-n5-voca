@@ -1,13 +1,13 @@
 .active {
   color: #ffffff;
-  background-color: #f59e0b;
+  background-color: #ef4444;
   display: block;
   padding: 0.5rem;
 }
 
 .active-choice {
   color: #ffffff;
-  background-color: #f59e0b;
+  background-color: #ef4444;
   display: block;
   padding: 0.5rem;
 }
@@ -16,7 +16,7 @@
 @media only screen and (max-width: 600px) {
   .active {
     color: #ffffff;
-    background-color: #f59e0b;
+    background-color: #ef4444;
     display: block;
   }
 }

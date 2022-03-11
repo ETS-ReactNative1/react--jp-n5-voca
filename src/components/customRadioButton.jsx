@@ -17,10 +17,10 @@ const CustomRadioButton = ({
     <div
       onClick={() => onClick(value)}
       className={`inline-block bg-white cursor-pointer rounded-lg border-4 border-white-300 ${
-        isSelected && 'border-amber-400 text-amber-700'
+        isSelected && 'border-red-400 text-red-700'
       } ${styles}`}>
       <span>{label}</span>
-      <small className="text-amber-500 text-xs">{description}</small>
+      <small className="text-red-500 text-xs">{description}</small>
     </div>
   );
 };

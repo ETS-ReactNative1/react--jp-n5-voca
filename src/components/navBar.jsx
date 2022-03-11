@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import logo from '../assets/icons/logo.png';
 
 const NavBar = ({
   currentLang: lang,
@@ -26,34 +26,7 @@ const NavBar = ({
     <nav className="bg-white w-full z-50 sticky top-0 px-2 sm:px-4 py-0.5 rounded dark:bg-gray-800 backdrop-filter backdrop-blur-lg bg-opacity-20 border-b border-gray-200 firefox:bg-opacity-90">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex">
-          <svg
-            version="1.0"
-            xmlns="http://www.w3.org/2000/svg"
-            width="40pt"
-            height="40pt"
-            className="mr-1"
-            viewBox="0 0 120 120"
-            preserveAspectRatio="xMidYMid meet">
-            <g
-              transform="translate(0.000000,110.000000) scale(0.140000,-0.140000)"
-              fill="#000000"
-              stroke="none">
-              <path
-                d="M315 595 c0 -40 -4 -77 -8 -82 -5 -4 -38 -8 -73 -8 -35 0 -64 -1 -64
--2 0 -1 7 -9 16 -17 10 -10 33 -16 65 -16 55 0 54 1 43 -83 -6 -42 -11 -49
--49 -71 -23 -14 -58 -43 -78 -65 -31 -34 -37 -49 -37 -84 0 -75 23 -82 117
--37 61 28 63 29 73 10 17 -33 32 -23 28 18 -3 32 5 48 57 120 58 81 61 83 94
-78 55 -8 76 -37 76 -101 0 -46 -4 -58 -30 -85 -16 -18 -52 -43 -78 -57 -27
--13 -47 -26 -45 -29 14 -13 117 35 155 71 40 39 43 45 43 96 0 80 -33 117
--121 133 -26 5 -39 13 -44 29 l-7 22 -7 -24 c-5 -18 -18 -27 -56 -37 -28 -7
--51 -13 -53 -14 -2 0 -2 26 0 58 l3 57 75 18 c87 21 104 32 68 46 -18 7 -37 5
--64 -4 -63 -23 -64 -22 -61 46 2 51 -1 63 -18 75 -19 13 -20 11 -20 -61z m88
--266 c-10 -17 -30 -45 -45 -62 l-27 -32 -1 51 c0 49 1 52 33 62 55 17 60 15
-40 -19z m-109 -69 c4 -28 4 -55 1 -60 -11 -17 -83 -50 -110 -50 -51 0 -24 71
-48 127 23 18 45 33 48 33 4 0 9 -23 13 -50z"
-              />
-            </g>
-          </svg>
+          <img src={logo} className="w-auto h-14 mr-2 p-1" />
 
           <div className="flex flex-col">
             <span className="whitespace-nowrap text-lg font-bold dark:text-white">

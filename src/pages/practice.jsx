@@ -196,7 +196,7 @@ const Practice = () => {
             {/* modal open button */}
             <button
               onClick={handleModal}
-              className="text-white bg-amber-500 shadow-md hover:bg-amber-700 focus:ring-4 focus:ring-amber-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
+              className="text-white bg-red-500 shadow-md hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
               type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -398,7 +398,7 @@ const Practice = () => {
                     {/* submit button */}
                     <button
                       type="submit"
-                      className="w-full font-bold text-white bg-amber-500 hover:bg-amber-800 focus:ring-4 focus:ring-amber-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
+                      className="w-full font-bold text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                       Let's start{' '}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
