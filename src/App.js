@@ -35,8 +35,14 @@ const App = () => {
     <>
       <NavBar langChange={changeLanguage} currentLang={getLangCookie()} />
       <Routes>
-        <Route path="/learn" element={<Learn />} />
-        <Route path="/practice" element={<Practice />} />
+        <Route
+          path="/learn"
+          element={<Learn currentLang={getLangCookie()} />}
+        />
+        <Route
+          path="/practice"
+          element={<Practice currentLang={getLangCookie()} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/not-found" element={<NotFound />} />
         <Route path="/" exact element={<Navigate to="/learn" />} />

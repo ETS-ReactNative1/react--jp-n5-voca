@@ -25,21 +25,43 @@ const About = () => {
           See YuuJin (C# UWP V.1)
         </a>
         <div className="mt-5">{t('about.text')}</div>
-        <small className="text-indigo-500 mt-5 inline-block">
-          made with{' '}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 inline"
-            viewBox="0 0 20 20"
-            fill="#f00">
-            <path
-              fillRule="evenodd"
-              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-              clipRule="evenodd"
-            />
-          </svg>{' '}
-          by mr.htetphyonaing@gmail.com
-        </small>
+        <div className="flex justify-between mt-5 items-center">
+          <small className="text-indigo-500 inline-block">
+            made with{' '}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline"
+              viewBox="0 0 20 20"
+              fill="#f00">
+              <path
+                fillRule="evenodd"
+                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                clipRule="evenodd"
+              />
+            </svg>{' '}
+            by{' '}
+            <a
+              href="https://www.facebook.com/htet.phyo.naing.hpn"
+              className="underline">
+              Htet Phyo Naing{' '}
+            </a>
+          </small>
+          <a href="mailto:mr.htetphyonaing@gmail.com">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   );

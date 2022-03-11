@@ -18,7 +18,7 @@ const NavBar = ({ currentLang: lang, langChange }) => {
   }, [lang]);
 
   return (
-    <nav className="bg-white w-full z-50 sticky top-0 px-2 sm:px-4 py-0.5 rounded dark:bg-gray-800 backdrop-filter backdrop-blur-lg bg-opacity-60 border-b border-gray-200 firefox:bg-opacity-50">
+    <nav className="bg-white w-full z-50 sticky top-0 px-2 sm:px-4 py-0.5 rounded dark:bg-gray-800 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 firefox:bg-opacity-50">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex">
           <img src={logo} className="w-auto h-14 mr-2 p-1" />
@@ -28,7 +28,7 @@ const NavBar = ({ currentLang: lang, langChange }) => {
               5V0CA
             </span>
             <div className="md:-mr-20">
-              <span className="text-sm text-gray-400">
+              <span className={`text-sm text-gray-400 font-semibold`}>
                 ー {t('learn.nav.welcome')}
               </span>
             </div>
@@ -72,7 +72,9 @@ const NavBar = ({ currentLang: lang, langChange }) => {
             <li onClick={() => setMenuVisibility(false)}>
               <NavLink
                 to="/learn"
-                className="block rounded py-2 px-3 md:rounded-3xl"
+                className={`block rounded py-2 px-3 md:rounded-3xl ${
+                  currentLang === 'my-MM' && 'font-semibold'
+                } `}
                 aria-current="page">
                 {t('learn.nav.learn')}{' '}
                 {pathname === '/learn' && (
@@ -89,7 +91,9 @@ const NavBar = ({ currentLang: lang, langChange }) => {
             <li onClick={() => setMenuVisibility(false)}>
               <NavLink
                 to="/practice"
-                className="block rounded py-2 px-3 md:rounded-3xl">
+                className={`block rounded py-2 px-3 md:rounded-3xl ${
+                  currentLang === 'my-MM' && 'font-semibold'
+                } `}>
                 {t('learn.nav.practice')}{' '}
                 {pathname === '/practice' && (
                   <svg
@@ -105,7 +109,9 @@ const NavBar = ({ currentLang: lang, langChange }) => {
             <li onClick={() => setMenuVisibility(false)}>
               <NavLink
                 to="/about"
-                className="block rounded py-2 px-3 md:rounded-3xl">
+                className={`block rounded py-2 px-3 md:rounded-3xl ${
+                  currentLang === 'my-MM' && 'font-semibold'
+                } `}>
                 {t('learn.nav.about')}{' '}
                 {pathname === '/about' && (
                   <svg

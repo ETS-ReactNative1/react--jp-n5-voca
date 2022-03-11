@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 import CustomRadioButton from '../components/customRadioButton';
 import Favorite from '../components/favorite';
 
-const Learn = () => {
+const Learn = ({ currentLang }) => {
   useTitle('5V0CA | Learn');
   const { t } = useTranslation();
   const [lesson, setLesson] = useState(1);
@@ -131,7 +131,9 @@ const Learn = () => {
         <div className="flex justify-between items-center mt-5">
           <button
             onClick={handleModal}
-            className="text-white bg-red-500 shadow-md hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-red-600dark:hover:bg-red-700 dark:focus:ring-red-800"
+            className={`text-white bg-red-500 shadow-md hover:bg-red-600 focus:ring-4 focus:ring-red-300 rounded-xl text-sm px-4 py-2 text-center dark:bg-red-600dark:hover:bg-red-700 dark:focus:ring-red-800 ${
+              currentLang === 'my-MM' && 'font-semibold'
+            }`}
             type="button">
             {t('learn.body.selectLessonBtn')}{' '}
             <svg
