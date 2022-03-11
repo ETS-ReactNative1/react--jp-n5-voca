@@ -37,6 +37,10 @@ body {
   font-family: 'Inter';
 }
 
+.jp-font {
+  font-family: 'MSMINCHO';
+}
+
 .card-grid {
   display: grid;
   align-items: center;

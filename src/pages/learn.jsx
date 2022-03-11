@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import { useTitle } from 'react-use';
 import { Container, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,6 +13,7 @@ import CustomRadioButton from '../components/customRadioButton';
 import Favorite from '../components/favorite';
 
 const Learn = () => {
+  useTitle('5V0CA | Learn');
   const [lesson, setLesson] = useState(1);
   const [lastViewedLesson, setLastViewedLesson] = useState(1);
   const [lessonFile, setLessonFile] = useState([]);
@@ -196,13 +198,19 @@ const Learn = () => {
                       {data.id}
                     </TableCell>
                     <TableCell align="left" className="w-60">
-                      {data.voca}
+                      <span className="jp-font font-semibold text-gray-700">
+                        {data.voca}
+                      </span>
                     </TableCell>
-                    <TableCell align="left" className="w-60">
+                    <TableCell align="left" className="w-auto">
                       {data.romaji}
                     </TableCell>
-                    <TableCell align="left">{data.meaning}</TableCell>
-                    <TableCell>
+                    <TableCell align="left" className="w-auto">
+                      <span className="text-gray-700 font-semibold">
+                        {data.meaning}
+                      </span>
+                    </TableCell>
+                    <TableCell className="w-auto">
                       <Favorite
                         checked={_.includes(favoritesInSelectedLesson, data.id)}
                         onClick={() => handleFavorite(data)}
@@ -275,7 +283,7 @@ const Learn = () => {
             </div>
           </div>
         </div>
-        <span className="text-center mt-5 text-gray-400">ー finish ー</span>
+        <span className="text-center mt-5 text-gray-400">ー end ー</span>
       </div>
     </Container>
   );

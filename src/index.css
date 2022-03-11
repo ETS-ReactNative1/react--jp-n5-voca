@@ -9,6 +9,13 @@
   src: url('../public/fonts/Inter-Regular.ttf'); /* IE9 Compat Modes */
 }
 
+@font-face {
+  font-family: 'MSMINCHO';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/MSMINCHO.TTF');
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -30,7 +30,7 @@ const NavBar = ({
 
           <div className="flex flex-col">
             <span className="whitespace-nowrap text-lg font-bold dark:text-white">
-              N5 Voca
+              5V0CA
             </span>
             <div className="md:-mr-20">
               <span className="text-sm text-gray-400">ー welcome</span>

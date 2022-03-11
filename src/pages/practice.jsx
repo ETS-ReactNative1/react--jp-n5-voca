@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import { useTitle } from 'react-use';
 import { Container } from '@mui/material';
 import CustomRadioButton from '../components/customRadioButton';
 import FlashCardList from '../components/flashCardList';
@@ -9,6 +10,8 @@ import {
 } from '../utils/mutateObjKeys';
 
 const Practice = () => {
+  useTitle('5V0CA | Practice');
+
   const [modalVisibility, setModalVisibility] = useState(false);
   const [practiceType, setPracticeType] = useState('nonfavorites'); // all, favorites, nonfavorites
   const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary'); // vocabulary, meaning
@@ -423,7 +426,7 @@ const Practice = () => {
             </div>
           </div>
           {/* modal end */}
-          <span className="text-center mt-5 text-gray-400">ー finish ー</span>
+          <span className="text-center mt-5 text-gray-400">ー end ー</span>
         </div>
       </div>
     </Container>

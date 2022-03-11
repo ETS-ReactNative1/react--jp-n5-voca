@@ -27,10 +27,14 @@ const FlashCard = ({ flashcard }) => {
       style={{ height: height }}
       onClick={() => setFlip(!flip)}>
       <div className="front" ref={frontEl}>
-        {flashcard.front}
+        <span className="jp-font font-semibold text-gray-700">
+          {flashcard.front}
+        </span>
       </div>
       <div className="back" ref={backEl}>
-        {flashcard.back}
+        <span className="jp-font font-semibold text-gray-700">
+          {flashcard.back}
+        </span>
       </div>
     </div>
   );
