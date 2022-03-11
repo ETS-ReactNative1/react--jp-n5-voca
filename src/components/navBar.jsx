@@ -25,7 +25,7 @@ const NavBar = ({ currentLang: lang, langChange }) => {
 
           <div className="flex flex-col">
             <span className="whitespace-nowrap text-lg font-bold dark:text-white">
-              5V0CA
+              V0CA5
             </span>
             <div className="md:-mr-20">
               <span className={`text-sm text-gray-400 font-semibold`}>

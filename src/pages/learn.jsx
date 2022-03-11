@@ -14,7 +14,7 @@ import CustomRadioButton from '../components/customRadioButton';
 import Favorite from '../components/favorite';
 
 const Learn = ({ currentLang }) => {
-  useTitle('5V0CA | Learn');
+  useTitle('V0CA5 | Learn');
   const { t } = useTranslation();
   const [lesson, setLesson] = useState(1);
   const [lastViewedLesson, setLastViewedLesson] = useState(1);

@@ -11,7 +11,7 @@ import {
 } from '../utils/mutateObjKeys';
 
 const Practice = ({ currentLang }) => {
-  useTitle('5V0CA | Practice');
+  useTitle('V0CA5 | Practice');
   const { t } = useTranslation();
 
   const [modalVisibility, setModalVisibility] = useState(false);
