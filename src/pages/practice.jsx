@@ -12,6 +12,7 @@ const Practice = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [practiceType, setPracticeType] = useState('nonfavorites'); // all, favorites, nonfavorites
   const [visiblePracticeData, setVisiblePracticeData] = useState('vocabulary'); // vocabulary, meaning
+  const [practiceDescVisibility, setPracticeDescVisibility] = useState(false);
 
   const [from, setFrom] = useState(1);
   const [to, setTo] = useState(2);
@@ -47,6 +48,12 @@ const Practice = () => {
     }
   };
 
+  const savePracticeSetting = () => {
+    localStorage.setItem('lessonRange', JSON.stringify(lessonRange));
+    localStorage.setItem('practiceType', practiceType);
+    localStorage.setItem('visiblePracticeData', visiblePracticeData);
+  };
+
   const handleSubmit = (e) => {
     // console.log(lessonRange, practiceType, visiblePracticeData);
     e.preventDefault();
@@ -55,6 +62,15 @@ const Practice = () => {
     // clear previous previous data
     setPracticeData([]);
 
+    // save current practice setting to local storage for later ref
+    savePracticeSetting();
+
+    generateFlashCardBasedOnPracticeSetting();
+
+    setPracticeDescVisibility(true);
+  };
+
+  const generateFlashCardBasedOnPracticeSetting = () => {
     // call all data : [lesson range]
     let data = [];
     lessonRange.map((lesson) => {
@@ -139,8 +155,37 @@ const Practice = () => {
   const handleVisiblePracticeDataChange = (value) =>
     setVisiblePracticeData(value);
 
-  useEffect(() => {
+  const initializePracticeSetting = () => {
     setLessonRange(_.range(from, to + 1));
+    localStorage.setItem('lessonRange', JSON.stringify(_.range(from, to + 1)));
+
+    setPracticeType('favorites');
+    localStorage.setItem('practiceType', 'favorites');
+
+    setVisiblePracticeData('vocabulary');
+    localStorage.setItem('visiblePracticeData', 'vocabulary');
+  };
+
+  useEffect(() => {
+    if (
+      !('lessonRange' in localStorage) ||
+      !('practiceType' in localStorage) ||
+      !('visiblePracticeData' in localStorage)
+    )
+      initializePracticeSetting();
+
+    setPracticeDescVisibility(false);
+
+    // set previous practice setting
+    let _lessonRange = JSON.parse(localStorage.getItem('lessonRange'));
+    let _practiceType = localStorage.getItem('practiceType');
+    let _visiblePracticeData = localStorage.getItem('visiblePracticeData');
+
+    setLessonRange(_lessonRange);
+    setPracticeType(_practiceType);
+    setVisiblePracticeData(_visiblePracticeData);
+
+    generateFlashCardBasedOnPracticeSetting();
   }, []);
 
   return (
@@ -169,7 +214,10 @@ const Practice = () => {
           </div>
 
           {/* flash card list component */}
-          <div className="flex flex-col justify-center mx-auto mt-5">
+          <div
+            className={`${
+              practiceDescVisibility ? '' : 'hidden'
+            } flex flex-col justify-center mx-auto mt-5`}>
             <div>
               Practice Type:{' '}
               <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
