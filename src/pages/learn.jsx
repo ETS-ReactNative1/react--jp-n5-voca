@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { useTitle } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import { Container, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,6 +15,7 @@ import Favorite from '../components/favorite';
 
 const Learn = () => {
   useTitle('5V0CA | Learn');
+  const { t } = useTranslation();
   const [lesson, setLesson] = useState(1);
   const [lastViewedLesson, setLastViewedLesson] = useState(1);
   const [lessonFile, setLessonFile] = useState([]);
@@ -131,7 +133,7 @@ const Learn = () => {
             onClick={handleModal}
             className="text-white bg-red-500 shadow-md hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-red-600dark:hover:bg-red-700 dark:focus:ring-red-800"
             type="button">
-            Select Lesson{' '}
+            {t('learn.body.selectLessonBtn')}{' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 inline"
@@ -149,14 +151,14 @@ const Learn = () => {
 
           <div className="text-right">
             <span className="ml-3 font-bold block">
-              Lesson:{' '}
+              {t('learn.body.lesson')}:{' '}
               <span className="bg-red-300 text-red-800 px-3 py-2 rounded-full">
                 {lesson}
               </span>
             </span>
-            <span className="text-sm text-red-700">
-              {favoritesInSelectedLesson.length} favorites / {lessonFile.length}{' '}
-              total
+            <span className="text-sm text-red-700 inline-block pt-2">
+              {favoritesInSelectedLesson.length} {t('learn.body.favorite')} /{' '}
+              {lessonFile.length} {t('learn.body.total')}
             </span>
           </div>
         </div>
@@ -164,27 +166,31 @@ const Learn = () => {
         <TableContainer component={Paper} sx={{ mt: 3 }}>
           <Table sx={{ minWidth: 150 }} aria-label="a dense table">
             <TableHead>
-              <TableRow>
+              <TableRow className="bg-red-50">
                 <TableCell width="auto">
-                  <Typography style={{ fontWeight: 600 }}>No.</Typography>
-                </TableCell>
-                <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>
-                    Vocabulary
+                    {t('learn.body.no')}
                   </Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>
-                    Romaji / Kanji
+                    {t('learn.body.voca')}
                   </Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography style={{ fontWeight: 600 }}>
-                    Meaning (mm)
+                    {t('learn.body.romaji')}
                   </Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography style={{ fontWeight: 600 }}>Favorite</Typography>
+                  <Typography style={{ fontWeight: 600 }}>
+                    {t('learn.body.meaning')}
+                  </Typography>
+                </TableCell>
+                <TableCell align="left" className="w-32">
+                  <Typography style={{ fontWeight: 600 }}>
+                    {t('learn.body.favorite')}
+                  </Typography>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -194,7 +200,7 @@ const Learn = () => {
                   <TableRow
                     key={data.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                    <TableCell component="th" scope="row" className="w-5">
+                    <TableCell component="th" scope="row" className="w-auto">
                       {data.id}
                     </TableCell>
                     <TableCell align="left" className="w-60">
@@ -245,9 +251,9 @@ const Learn = () => {
                 </div>
                 <form
                   onSubmit={handleSubmit}
-                  className="px-6 pb-8 space-y-4 lg:px-8">
+                  className="px-6 pb-8 space-y-4 lg:px-8 items-center">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                    Select a lesson{' '}
+                    {t('learn.body.selectLessonBtn')}{' '}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 inline"
@@ -283,7 +289,9 @@ const Learn = () => {
             </div>
           </div>
         </div>
-        <span className="text-center mt-5 text-gray-400">ー end ー</span>
+        <span className="text-center mt-5 text-gray-400">
+          ー {t('learn.body.end')} ー
+        </span>
       </div>
     </Container>
   );

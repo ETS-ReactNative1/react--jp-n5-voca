@@ -12,21 +12,15 @@ import About from './pages/app/about';
 const App = () => {
   const { i18n } = useTranslation();
   const { pathname } = useLocation();
-  const [selectedCharacter, setSelectedCharacter] = useState('ka');
 
-  // const setLanguage = (lang) => i18n.changeLanguage(lang);
+  const setLanguage = (lang) => i18n.changeLanguage(lang);
 
   const getLangCookie = () => Cookies.get('site-lang');
 
   const changeLanguage = (e) => {
     const lang = e.target.value;
     Cookies.set('site-lang', lang);
-    // setLanguage(lang);
-  };
-
-  const handleCharacter = (e, value) => {
-    if (value !== null) setSelectedCharacter(value);
-    saveToLocalStorage('charType', value);
+    setLanguage(lang);
   };
 
   const saveToLocalStorage = (name, value) => localStorage.setItem(name, value);
@@ -34,29 +28,15 @@ const App = () => {
 
   useEffect(() => {
     // lang
-    // setLanguage(getLangCookie());
-
-    const currentCharType = getFromLocalStorage('charType');
-    if (currentCharType) setSelectedCharacter(currentCharType);
+    setLanguage(getLangCookie());
   }, []);
 
   return (
     <>
-      <NavBar
-        langChange={changeLanguage}
-        currentLang={getLangCookie()}
-        selectedCharacter={selectedCharacter}
-        handleCharacter={handleCharacter}
-      />
+      <NavBar langChange={changeLanguage} currentLang={getLangCookie()} />
       <Routes>
-        <Route
-          path="/learn"
-          element={<Learn selectedCharacter={selectedCharacter} />}
-        />
-        <Route
-          path="/practice"
-          element={<Practice selectedCharacter={selectedCharacter} />}
-        />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/practice" element={<Practice />} />
         <Route path="/about" element={<About />} />
         <Route path="/not-found" element={<NotFound />} />
         <Route path="/" exact element={<Navigate to="/learn" />} />

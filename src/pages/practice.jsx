@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { useTitle } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import { Container } from '@mui/material';
 import CustomRadioButton from '../components/customRadioButton';
 import FlashCardList from '../components/flashCardList';
@@ -11,6 +12,7 @@ import {
 
 const Practice = () => {
   useTitle('5V0CA | Practice');
+  const { t } = useTranslation();
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [practiceType, setPracticeType] = useState('nonfavorites'); // all, favorites, nonfavorites
@@ -212,7 +214,7 @@ const Practice = () => {
                   clipRule="evenodd"
                 />
               </svg>{' '}
-              Define Practice Settings
+              {t('practice.setupButton')}
             </button>
           </div>
 
@@ -222,19 +224,19 @@ const Practice = () => {
               practiceDescVisibility ? '' : 'hidden'
             } flex flex-col justify-center mx-auto mt-5`}>
             <div>
-              Practice Type:{' '}
+              {t('practice.practicingTypeDesc')}{' '}
               <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
                 {practiceType}
               </span>
             </div>
             <div>
-              Lesson Range:{' '}
+              {t('practice.practicingLessons')}{' '}
               <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
                 {lessonRange.join(', ')}
               </span>
             </div>
             <div>
-              Total:{' '}
+              {t('practice.count')}{' '}
               <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
                 {practiceData.length}
               </span>
@@ -247,7 +249,7 @@ const Practice = () => {
           ) : (
             <div className="flex flex-col justify-center mx-auto mt-10">
               <span className="items-center justify-center text-red-600 bg-red-100 px-2 py-1 rounded-full">
-                Currently no data to practice{' '}
+                {t('practice.noData')}{' '}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 inline"
@@ -294,7 +296,7 @@ const Practice = () => {
                     onSubmit={handleSubmit}
                     className="px-6 pb-4 space-y-4 lg:px-8 sm:pb-6 xl:pb-8">
                     <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                      Setup Practice Settings{' '}
+                      {t('practice.modal.title')}{' '}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 inline"
@@ -316,7 +318,7 @@ const Practice = () => {
                       <label
                         htmlFor="practice"
                         className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Select range of lessons
+                        {t('practice.modal.lessonRange')}
                       </label>
                       <div className="relative w-full text-center">
                         <div className="grid grid-cols-5 gap-2">
@@ -339,14 +341,14 @@ const Practice = () => {
                       <label
                         htmlFor="practice"
                         className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Select type of practice
+                        {t('practice.modal.typeOfPractice')}
                       </label>
                       <div className="relative w-full text-center">
                         <div className="grid grid-cols-3 gap-2">
                           <CustomRadioButton
                             value="all"
                             selected={practiceType}
-                            label="All"
+                            label={t('practice.modal.all')}
                             description=""
                             styles="py-2"
                             onClick={handlePracticeTypeChange}
@@ -354,7 +356,7 @@ const Practice = () => {
                           <CustomRadioButton
                             value="favorites"
                             selected={practiceType}
-                            label="+Favorites"
+                            label={t('practice.modal.favorites')}
                             description=""
                             styles="py-2"
                             onClick={handlePracticeTypeChange}
@@ -362,7 +364,7 @@ const Practice = () => {
                           <CustomRadioButton
                             value="nonfavorites"
                             selected={practiceType}
-                            label="-Favorites"
+                            label={t('practice.modal.nonFavorites')}
                             description=""
                             styles="py-2"
                             onClick={handlePracticeTypeChange}
@@ -376,21 +378,21 @@ const Practice = () => {
                       <label
                         htmlFor="practice"
                         className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                        I want to see...
+                        {t('practice.modal.iWantToSee')}
                       </label>
                       <div className="relative w-full text-center">
                         <div className="grid grid-cols-2 gap-2">
                           <CustomRadioButton
                             value="vocabulary"
                             selected={visiblePracticeData}
-                            label="Vocabulary"
+                            label={t('practice.modal.seeType1')}
                             styles="py-2"
                             onClick={handleVisiblePracticeDataChange}
                           />
                           <CustomRadioButton
                             value="meaning"
                             selected={visiblePracticeData}
-                            label="Meaning"
+                            label={t('practice.modal.seeType2')}
                             styles="py-2"
                             onClick={handleVisiblePracticeDataChange}
                           />
@@ -402,7 +404,7 @@ const Practice = () => {
                     <button
                       type="submit"
                       className="w-full font-bold text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                      Let's start{' '}
+                      {t('practice.modal.startButton')}{' '}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 inline"
@@ -426,7 +428,9 @@ const Practice = () => {
             </div>
           </div>
           {/* modal end */}
-          <span className="text-center mt-5 text-gray-400">ー end ー</span>
+          <span className="text-center mt-5 text-gray-400">
+            ー {t('practice.end')} ー
+          </span>
         </div>
       </div>
     </Container>

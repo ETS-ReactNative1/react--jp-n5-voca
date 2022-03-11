@@ -1,0 +1,48 @@
+{
+  "learn": {
+    "nav": {
+      "welcome": "Welcome",
+      "learn": "Learn",
+      "practice": "Practice",
+      "about": "About"
+    },
+    "body": {
+      "selectLessonBtn": "Select a lesson",
+      "lesson": "Lesson",
+      "favorite": "Favorite",
+      "total": "in total",
+      "no": "No.",
+      "voca": "Vocabulary",
+      "romaji": "Romaji / Kanji",
+      "meaning": "Meaning",
+      "end": "end"
+    }
+  },
+  "practice": {
+    "setupButton": "Define Practice Setting",
+    "noData": "Currently no data to practice",
+    "end": "end",
+    "practicingTypeDesc": "Practicing ー ",
+    "practicingLessons": "Lessons ー ",
+    "count": "Total ー ",
+    "modal": {
+      "title": "Setup Practice Settings",
+      "lessonRange": "Choose Lessons",
+      "typeOfPractice": "Choose type of practice ?",
+      "all": "All",
+      "favorites": "Favorites",
+      "nonFavorites": "ー Favorites",
+      "iWantToSee": "I want to see...",
+      "seeType1": "Vocabulary",
+      "seeType2": "Meaning",
+      "startButton": "Let's Start"
+    }
+  },
+  "about": {
+    "text": "This app is a web version of the above 2 apps: Foreword and YuuJin. \n\n It is developed with the aim of helping students who are studying N5 and find difficult in remembering studied vocabularies. \n\n You can learn vocabularies on `Learn` page, although you can study them with the documents provided by your training class, able to mark vocabularies difficult, and can practice those vocabularies randomly in `Practice` Page. Choose range of lessons you want to practice, practice type, and what you want to see and don't want to see. \n\n If you do not want to forget, you have to warm up every day."
+  },
+  "notFound": {
+    "text": "Our apologies, but we couldn't find that page. Is it possible that you found a bad link?",
+    "button": "Back to Home"
+  }
+}

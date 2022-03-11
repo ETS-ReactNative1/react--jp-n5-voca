@@ -16,13 +16,13 @@ const About = () => {
           target={'_blank'}
           href="https://docs.google.com/spreadsheets/d/17IyFPPFwaXmq8lEeQxXc-tjE2CdPQqrwa1Px1braYVw/edit#gid=0"
           className="font-medium text-sm hover:underline text-gray-500 hover:text-indigo-500 block md:inline-block">
-          See Java Swing V.1
+          See Foreword (Java Swing V.1)
         </a>
         <a
           target={'_blank'}
           href="https://youtu.be/LW3Ih6qT9Qs"
           className="font-medium text-sm ml-0 md:ml-3 hover:underline text-gray-500 hover:text-indigo-500 block md:inline-block">
-          See C# UWP V.1
+          See YuuJin (C# UWP V.1)
         </a>
         <div className="mt-5">{t('about.text')}</div>
         <small className="text-indigo-500 mt-5 inline-block">

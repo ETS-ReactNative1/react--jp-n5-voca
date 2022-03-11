@@ -3,12 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/icons/logo.png';
 
-const NavBar = ({
-  currentLang: lang,
-  langChange,
-  selectedCharacter,
-  handleCharacter,
-}) => {
+const NavBar = ({ currentLang: lang, langChange }) => {
   const { t } = useTranslation();
   const [currentLang, setCurrentLang] = useState('en-US');
   const { pathname } = useLocation();
@@ -16,7 +11,7 @@ const NavBar = ({
 
   useEffect(() => {
     // seting language in select box
-    // setCurrentLang(lang);
+    setCurrentLang(lang);
     if (lang === 'ja-JP') setCurrentLang('ja-JP');
     else if (lang === 'my-MM') setCurrentLang('my-MM');
     else setCurrentLang('en-US');
@@ -33,7 +28,9 @@ const NavBar = ({
               5V0CA
             </span>
             <div className="md:-mr-20">
-              <span className="text-sm text-gray-400">ー welcome</span>
+              <span className="text-sm text-gray-400">
+                ー {t('learn.nav.welcome')}
+              </span>
             </div>
           </div>
         </Link>
@@ -77,7 +74,7 @@ const NavBar = ({
                 to="/learn"
                 className="block rounded py-2 px-3 md:rounded-3xl"
                 aria-current="page">
-                Learn{' '}
+                {t('learn.nav.learn')}{' '}
                 {pathname === '/learn' && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +90,7 @@ const NavBar = ({
               <NavLink
                 to="/practice"
                 className="block rounded py-2 px-3 md:rounded-3xl">
-                Practice{' '}
+                {t('learn.nav.practice')}{' '}
                 {pathname === '/practice' && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +106,7 @@ const NavBar = ({
               <NavLink
                 to="/about"
                 className="block rounded py-2 px-3 md:rounded-3xl">
-                About{' '}
+                {t('learn.nav.about')}{' '}
                 {pathname === '/about' && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
