@@ -32,7 +32,8 @@
       "all": "全て",
       "favorites": "お気に入り",
       "nonFavorites": "ー お気に入り",
-      "iWantToSee": "見たい...",
+      "iWantToSee1": "語彙を見ながら、その意味を推測する",
+      "iWantToSee2": "意味を見ながら、語彙を推測する。",
       "seeType1": "単語",
       "seeType2": "意味",
       "startButton": "初めましょう"

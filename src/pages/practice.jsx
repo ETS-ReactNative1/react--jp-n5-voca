@@ -378,7 +378,10 @@ const Practice = () => {
                       <label
                         htmlFor="practice"
                         className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                        {t('practice.modal.iWantToSee')}
+                        {visiblePracticeData === 'vocabulary' &&
+                          t('practice.modal.iWantToSee1')}
+                        {visiblePracticeData === 'meaning' &&
+                          t('practice.modal.iWantToSee2')}
                       </label>
                       <div className="relative w-full text-center">
                         <div className="grid grid-cols-2 gap-2">

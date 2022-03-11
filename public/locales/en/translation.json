@@ -32,7 +32,8 @@
       "all": "All",
       "favorites": "Favorites",
       "nonFavorites": "ー Favorites",
-      "iWantToSee": "I want to see...",
+      "iWantToSee1": "While looking at voca, guess the meaning.",
+      "iWantToSee2": "While looking at meaning, guess the voca.",
       "seeType1": "Vocabulary",
       "seeType2": "Meaning",
       "startButton": "Let's Start"

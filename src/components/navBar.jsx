@@ -18,7 +18,7 @@ const NavBar = ({ currentLang: lang, langChange }) => {
   }, [lang]);
 
   return (
-    <nav className="bg-white w-full z-50 sticky top-0 px-2 sm:px-4 py-0.5 rounded dark:bg-gray-800 backdrop-filter backdrop-blur-lg bg-opacity-20 border-b border-gray-200 firefox:bg-opacity-90">
+    <nav className="bg-white w-full z-50 sticky top-0 px-2 sm:px-4 py-0.5 rounded dark:bg-gray-800 backdrop-filter backdrop-blur-lg bg-opacity-60 border-b border-gray-200 firefox:bg-opacity-50">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex">
           <img src={logo} className="w-auto h-14 mr-2 p-1" />

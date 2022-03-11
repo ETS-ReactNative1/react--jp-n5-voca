@@ -15,7 +15,7 @@ const NotFound = () => {
         {t('notFound.text')}
       </span>
       <Link to="/">
-        <button className="mt-5 items-center rounded-2xl bg-indigo-500 p-3 text-center text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 hover:bg-indigo-700 hover:text-white hover:shadow-none focus:ring-4 focus:ring-indigo-300 dark:border-indigo-500 dark:text-indigo-500 dark:hover:text-white dark:focus:ring-indigo-800 md:inline-flex">
+        <button className="mt-5 items-center rounded-2xl bg-red-500 p-3 text-center text-sm font-semibold text-white shadow-lg shadow-red-500/50 hover:bg-red-700 hover:text-white hover:shadow-none focus:ring-4 focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800 md:inline-flex">
           {t('notFound.button')}
         </button>
       </Link>
