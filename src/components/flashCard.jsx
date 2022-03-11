@@ -26,12 +26,12 @@ const FlashCard = ({ flashcard }) => {
       }`}
       style={{ height: height }}
       onClick={() => setFlip(!flip)}>
-      <div className="front" ref={frontEl}>
+      <div className="front focus:outline-none focus:ring-0" ref={frontEl}>
         <span className="jp-font font-semibold text-gray-700">
           {flashcard.front}
         </span>
       </div>
-      <div className="back" ref={backEl}>
+      <div className="back focus:outline-none focus:ring-0" ref={backEl}>
         <span className="jp-font font-semibold text-gray-700">
           {flashcard.back}
         </span>
