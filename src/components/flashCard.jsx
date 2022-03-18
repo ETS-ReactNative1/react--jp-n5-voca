@@ -32,9 +32,7 @@ const FlashCard = ({ flashcard }) => {
         </span>
       </div>
       <div className="back focus:outline-none focus:ring-0" ref={backEl}>
-        <span className="jp-font font-semibold text-gray-700">
-          {flashcard.back}
-        </span>
+        <span className="jp-font font-semibold">{flashcard.back}</span>
       </div>
     </div>
   );

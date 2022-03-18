@@ -166,7 +166,7 @@ const Learn = ({ currentLang }) => {
         </div>
 
         <TableContainer component={Paper} sx={{ mt: 3 }}>
-          <Table sx={{ minWidth: 150 }} aria-label="a dense table">
+          <Table sx={{ minWidth: 150 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow className="bg-red-50">
                 <TableCell width="auto">

@@ -81,5 +81,9 @@ body {
 }
 
 .card .back {
+  background-color: #ef4444;
+  color: white;
+  position: absolute;
+  border-radius: 5px;
   transform: rotateY(180deg);
 }
