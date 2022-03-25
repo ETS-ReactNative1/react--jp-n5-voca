@@ -27,7 +27,7 @@
     "count": "Total ー ",
     "modal": {
       "title": "Setup Practice Settings",
-      "lessonRange": "Choose Lessons",
+      "lessonRange": "Choose Lesson (s)",
       "typeOfPractice": "Choose type of practice ?",
       "all": "All",
       "favorites": "Favorites",
