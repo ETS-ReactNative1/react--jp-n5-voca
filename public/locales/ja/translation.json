@@ -27,7 +27,7 @@
     "count": "合計 ー ",
     "modal": {
       "title": "練習設定のセットアップ",
-      "lessonRange": "レッスンを選択",
+      "lessonRange": "レッスンを選択する",
       "typeOfPractice": "練習の種類を選択する",
       "all": "全て",
       "favorites": "お気に入り",
