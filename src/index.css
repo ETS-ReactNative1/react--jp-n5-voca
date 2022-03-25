@@ -16,6 +16,10 @@
   src: url('../public/fonts/MSMINCHO.TTF');
 }
 
+html {
+  user-select: none;
+}
+
 body {
   margin: 0;
   padding: 0;
